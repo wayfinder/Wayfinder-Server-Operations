@@ -1,0 +1,12 @@
+$TTL	86400
+@       IN      SOA     mgmt1.example. root.mgmt1.example.  (
+                                      2010060101 ; Serial
+                                      28800      ; Refresh
+                                      14400      ; Retry
+                                      3600000    ; Expire
+                                      86400 )    ; Minimum
+              IN      NS      int-mgmt1.example.
+
+8	IN	PTR	int-mgmt1.example.
+11	IN	PTR	int-node1.example.
+12	IN	PTR	int-node2.example.

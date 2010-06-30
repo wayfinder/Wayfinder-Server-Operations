@@ -1,0 +1,6 @@
+%ks_configs = (
+        'c48x64mc2s'      => {
+	     'basedir' => '/kick/c48x64',
+	     'kicks'   => '/kick/c48x64/ks/mc2',
+	},
+);

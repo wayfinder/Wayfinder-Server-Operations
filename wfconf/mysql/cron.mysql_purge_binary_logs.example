@@ -1,0 +1,1 @@
+0 1 * * * nobody /usr/local/bin/mysql_purge_binary_logs -m master-host-name -s slave-host-name -u root -p root-password

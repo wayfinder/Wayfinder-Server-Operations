@@ -1,0 +1,20 @@
+default menu.c32
+prompt 0
+timeout 100
+display texts/start.txt
+menu title Wayfinder Systems Cluster Installation
+
+label c48x64mc2s
+  menu label ^1 CentOS 4.8 x86_64 MC2 cluster, serial console
+  menu default
+  kernel centos-4.8-x86_64/vmlinuz
+  append initrd=centos-4.8-x86_64/initrd.img network text nofb headless kssendmac ks=http://kickstart/?label=c48x64mc2s serial console=ttyS0,115200 ksdevice=eth0
+
+label c48x64s
+  menu label ^2 CentOS 4.8 x86_64 manual install, serial console
+  kernel centos-4.8-x86_64/vmlinuz
+  append initrd=centos-4.8-x86_64/initrd.img network text nofb headless serial console=ttyS0,115200
+
+label local
+   menu label ^Local boot
+  localboot 0

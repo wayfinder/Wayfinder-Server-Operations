@@ -1,0 +1,60 @@
+#!/bin/bash
+#
+# wfconf       Runs WFConf on startup
+#
+# chkconfig: 2345 99 01
+# description: Cluster config management
+
+# Source function library.
+. /etc/rc.d/init.d/functions
+
+RETVAL=0
+HGSOURCE=""
+WFCONF_DIR=/wayf/wfconf
+
+# default hgsource
+HGSOURCE="ssh://kickstart//kick/wfconf"
+
+# Wayfinder clusters has internal hostnames with the cluster name as the domain part
+CLUSTER=`hostname | sed -e 's/.*\.//'`
+
+if [ "$CLUSTER" = "example" ]; then
+   HGSOURCE="ssh://int-mgmt//kick/wfconf"
+fi
+
+runit() {
+    $WFCONF_DIR/$CLUSTER.pl | zsh 2>&1 | tee /root/wfconf-`date +%y-%m-%d_%H.%M.%S` 2>&1 && $success || failure
+}
+
+start() {
+        echo -n $"Running latest wfconf config: "
+        if [ -d /wayf/wfconf ]; then
+           cd /wayf/wfconf
+           hg pull -u ${HGSOURCE}
+           runit
+           return
+        fi
+        # nope, no wfconf config tree here yet
+        # luckily there should be one in /tmp
+        if [ -x /tmp/wfconf/$CLUSTER.pl ]; then
+           WFCONF_DIR=/tmp/wfconf
+           runit
+           # There should be a /wayf now, initialize it using the tree in /tmp
+	   mv /tmp/wfconf /wayf
+           return
+        fi
+        failure
+}
+
+# See how we were called.
+case "$1" in
+  start)
+	start
+	;;
+#  stop is NOP
+  *)
+	echo $"Usage: $prog {start|stop}"
+	exit 1
+esac
+
+exit $RETVAL

@@ -1,0 +1,9 @@
+127.0.0.1               localhost.localdomain localhost
+
+10.210.1.8 int-mgmt1
+10.210.1.11 int-node1
+10.210.1.12 int-node2
+
+10.160.1.8 mgmt1.example mgmt1 cluster-mgmt1
+10.160.1.11 node1.example node1 cluster-node1
+10.160.1.12 node2.example node2 cluster-node2

@@ -1,0 +1,19 @@
+%ks_ethers = (
+   # defaults
+   'default' => {
+      'grubfix'      => 'nop',
+      'rootpw'       => 'example',
+      'partitioning' => 'one_disk_sda',
+   },
+   # mgmt1
+   '00:aa:bb:cc:dd:ee'   => {
+      'partitioning' => 'md_raid1_sda_sdb',
+      'grubfix'      => 'md_raid1_sda_sdb',
+   },
+   # node1
+   '00:aa:bb:cc:dd:ef'   => {
+   },
+   # node2
+   '00:aa:bb:cc:dd:f0'   => {
+   },
+);

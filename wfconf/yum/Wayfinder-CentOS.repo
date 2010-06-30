@@ -1,0 +1,34 @@
+#
+# CentOS repository
+# $Id$
+#
+
+[base]
+name=CentOS-$releasever - Base
+baseurl=http://yum/centos-4.8-$basearch/RPMS.os/
+gpgcheck=1
+
+[update]
+name=CentOS-$releasever - Updates
+baseurl=http://yum/centos-4.8-$basearch/RPMS.updates/
+gpgcheck=1
+
+[centosplus]
+name=CentOS-$releasever - centosplus
+baseurl=http://yum/centos-4.8-$basearch/RPMS.centosplus/
+gpgcheck=1
+
+[addons]
+name=CentOS-$releasever - Addons
+baseurl=http://yum/centos-4.8-$basearch/RPMS.addons/
+gpgcheck=1
+
+[extras]
+name=CentOS-$releasever - extras
+baseurl=http://yum/centos-4.8-$basearch/RPMS.extras/
+gpgcheck=1
+
+[centos_i386]
+name=CentOS-$releasever - i386 pkgs
+baseurl=http://yum/centos_i386-4.8-$basearch/RPMS.base/
+gpgcheck=1

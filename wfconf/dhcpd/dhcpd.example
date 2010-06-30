@@ -1,0 +1,14 @@
+host mgmt1 {
+  fixed-address int-mgmt1;
+  hardware ethernet 00:aa:bb:cc:dd:ee;
+}
+
+host node1 {
+  fixed-address int-node1;
+  hardware ethernet 00:aa:bb:cc:dd:ef;
+}
+
+host node2 {
+  fixed-address int-node2;
+  hardware ethernet 00:aa:bb:cc:dd:f0;
+}

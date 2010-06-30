@@ -1,0 +1,25 @@
+# Wayfinder cluster DHCP file
+
+authoritative;
+
+allow bootp;
+allow booting;
+
+server-identifier 10.210.1.8;
+
+ddns-update-style none;
+
+subnet 10.210.1.0 netmask 255.255.255.0 {
+  option domain-name "example";
+  option domain-name-servers 10.210.1.8;
+#  option routers 10.120.1.4;
+  option subnet-mask 255.255.255.0;
+  next-server 10.210.1.8;
+  filename "pxelinux.0";
+  # one month lease
+  default-lease-time 2592000;
+  max-lease-time 2592000;
+}
+
+include "/etc/dhcpd.example";
+

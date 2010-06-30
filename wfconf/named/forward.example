@@ -1,0 +1,18 @@
+$TTL	3600
+@       IN      SOA     mgmt1.example. root.mgmt1.example. (
+                                2010060101
+                                10800
+                                3600 3600000
+                                86400 )
+
+
+	IN	NS	int-mgmt1.example.
+
+; aliases
+kickstart	IN	CNAME	int-mgmt1.example.
+yum      	IN	CNAME	int-mgmt1.example.
+
+int-mgmt1 		IN	A	10.210.1.8
+; the nodes
+int-node1 		IN	A	10.210.1.11
+int-node2 		IN	A	10.210.1.12

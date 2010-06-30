@@ -1,0 +1,32 @@
+#
+# /etc/zshrc is sourced in interactive shells.  It
+# should contain commands to set up aliases, functions,
+# options, key bindings, etc.
+#
+
+## shell functions
+#setenv() { export $1=$2 }  # csh compatibility
+
+# Set prompts
+PROMPT='%m:%3c%# ' # WF standard prompt
+#PROMPT='[%n@%m]%~%# '    # default prompt
+#RPROMPT=' %~'     # prompt for right side of screen
+
+# bindkey -v             # vi key bindings
+# bindkey -e             # emacs key bindings
+bindkey ' ' magic-space  # also do history expansion on space
+
+# Set up aliases
+alias mv='nocorrect mv'       # no spelling correction on mv
+alias cp='nocorrect cp'       # no spelling correction on cp
+alias mkdir='nocorrect mkdir' # no spelling correction on mkdir
+
+# from bashrc
+if [ "x$SHLVL" != "x1" ]; then # We're not a login shell
+    for i in /etc/profile.d/*.sh; do
+	if [ -r "$i" ]; then
+	    . $i
+	fi
+    done
+    unset i
+fi

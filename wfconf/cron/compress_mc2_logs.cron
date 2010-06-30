@@ -1,0 +1,5 @@
+MAILTO=sd-logs@wayfinder.com
+
+# compress mc2 logs nightly
+15 00 * * * mc2 zsh%cd /logs/old && EXITLOG=../exitlog_`hostname -s`_`date -d yesterday +\%y\%m\%d`.txt; if [ -e $EXITLOG ]; then mv $EXITLOG .; fi; for i in `ls | grep -v bz2`; do nice bzip2 $i; done
+

@@ -1,0 +1,22 @@
+This repository contains various tools and scripts for operations of MC2
+servers. Some tools are generic and can be used for various purposes.
+
+Please refer to the MC2 operations manual for more information on most of
+these: http://oss.wayfinder.com/wiki/operations_manual
+
+wfconf/
+A simple perl based configuration management tool including example
+configurations and files for setting up MC2 servers
+
+mc2conf/
+Tool to simplify complex configurations of MC2, generates mc2control files.
+
+wftee/
+Tee with some extra features
+
+monitoring/
+tools related to monitoring of MC2, includes a generic Nagios
+checker that uses Ganglia data
+
+misc/
+A couple of CGI binaries that presents MC2 configuration files as HTML 

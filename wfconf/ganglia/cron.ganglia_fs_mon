@@ -1,0 +1,2 @@
+# run gangla gmetric filesystem size/free script every two minutes
+*/2 * * * * nobody /usr/local/bin/ganglia_fs_mon.sh

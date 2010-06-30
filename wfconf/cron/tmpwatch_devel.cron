@@ -1,0 +1,3 @@
+MAILTO=sd-logs@wayfinder.com
+# clean /devel, 30 days expire time
+tmpwatch -f 720 /devel

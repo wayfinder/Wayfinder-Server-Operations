@@ -1,0 +1,50 @@
+// Default named.conf
+options {
+	directory "/var/named";
+	dump-file "/var/named/data/cache_dump.db";
+	statistics-file "/var/named/data/named_stats.txt";
+	version "NOT-YOUR-PROBLEM";
+	// recursion only allowed from trusted nets
+	allow-recursion { 127.0.0.1; 10.210.1.0/24; };
+};
+include "/etc/rndc.key";
+
+controls {
+        inet 127.0.0.1 allow { localhost; } keys { rndckey; };
+};
+
+zone "." IN {
+        type hint;
+        file "data/named.ca";
+};
+
+zone "localdomain" IN {
+        type master;
+        file "data/forward.localdomain";
+        allow-update { none; };
+};
+
+zone "localhost" IN {
+        type master;
+        file "data/forward.localhost";
+        allow-update { none; };
+};
+
+zone "0.0.127.in-addr.arpa" IN {
+        type master;
+        file "data/reverse.127.0.0";
+        allow-update { none; };
+};
+
+zone "1.210.10.in-addr.arpa" IN {
+        type master;
+        file "data/reverse.10.210.1";
+        allow-update { none; };
+};
+
+zone "example" IN {
+        type master;
+        file "data/forward.example";
+        allow-update { none; };
+};
+

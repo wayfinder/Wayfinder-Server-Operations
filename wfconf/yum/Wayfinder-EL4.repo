@@ -1,0 +1,12 @@
+[wayf-el4-base]
+name=Wayfinder EL4
+baseurl=http://yum/wayf-el4-$basearch/RPMS.base/
+gpgcheck=1
+enabled=1
+
+[wayf-el4-noarch]
+name=Wayfinder EL4 - noarch
+baseurl=http://yum/wayf-el4-noarch/RPMS.base/
+gpgcheck=1
+enabled=1
+

@@ -1,0 +1,5 @@
+[3rdparty-el4-base]
+name=3rd party RPMS - Base
+baseurl=http://yum/3rdparty-el4-$basearch/RPMS.base/
+gpgcheck=0
+enabled=1
